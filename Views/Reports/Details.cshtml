@@ -1,0 +1,180 @@
+﻿@model ProjectAthena.Models.Report
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Report</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUserName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationUserName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CampaignName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CampaignName)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ManagerId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ManagerId)
+        </dd>*@
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SubmissionDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SubmissionDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LastEditDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LastEditDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber5)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber6)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber6)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber7)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber7)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber8)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber8)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber9)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber9)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnNumber10)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnNumber10)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextA)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextA)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextB)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextB)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextC)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextC)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextD)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextD)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextF)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextF)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextH)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextH)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextI)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextI)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataColumnTextJ)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataColumnTextJ)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ApplicationUser.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Campaign)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Campaign.Id)
+        </dd>*@
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,16 @@
+﻿@model ProjectAthena.Models.CampaignUser
+
+@{
+    ViewData["Title"] = "Add a user to one of your campaigns";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>New Campaign Users</h1>
+
+<div>
+    <form asp-action="NewCampaignUser" method="post">
+        <select asp-for="CampaignId" asp-items="@(new SelectList(ViewBag.ListofCampaigns, "Id", "Name"))"></select>
+        <select asp-for="ApplicationUserId" asp-items="@(new SelectList(ViewBag.ListofUsers, "Id", "FullName"))"></select>
+        <input type="submit" value="Add New Member" />
+    </form>
+</div>

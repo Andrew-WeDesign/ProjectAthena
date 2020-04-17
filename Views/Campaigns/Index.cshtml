@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Get Started";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Getting Started</h1>
+
+<br />
+<div class="container row p-0 m-0">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div>
+            <a asp-action="Upsert" asp-controller="Campaigns" class="btn btn-info form-control text-white">Start a New Campaign</a>
+        </div>
+        <div>
+            <a asp-action="Campaigns" asp-controller="Campaigns" class="btn btn-info form-control text-white">My Campaigns</a>
+        </div>
+        <div>
+            <a asp-action="AddUserToCampaign" asp-controller="Campaigns" class="btn btn-info form-control text-white">Add Users to Your Campaigns</a>
+        </div>
+    }
+    else
+    {
+        <div>
+            <a class="btn btn-info form-control text-white" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </div>
+        <div>
+            <a class="btn btn-info form-control text-white" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </div>
+    }
+</div>

@@ -1,0 +1,18 @@
+﻿@model ProjectAthena.Models.CampaignViewModels.CampaignUserData
+
+@{
+    ViewData["Title"] = "ManageCampaignUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Manage Campaign Users @ViewBag.nameOfCampaign</h1>
+
+<div>
+    @foreach (var item in Model.CampaignUsers)
+    {
+        <p>@Html.DisplayFor(modelItem => item.ApplicationUser.FullName) @Html.DisplayFor(modelItem => item.ApplicationUser.NormalizedEmail)</p>
+    }
+</div>
+<div>
+
+</div>

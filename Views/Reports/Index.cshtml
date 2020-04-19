@@ -15,7 +15,7 @@
     @if (SignInManager.IsSignedIn(User))
     {
         <div>
-            <a asp-action="Upsert" asp-controller="Reports" class="btn btn-info form-control text-white">Start a New Report</a>
+            <a asp-action="StartReport" asp-controller="Reports" class="btn btn-info form-control text-white">Start a New Report</a>
         </div>
         <div>
             <a asp-action="Reports" asp-controller="Reports" class="btn btn-info form-control text-white">My Reports</a>

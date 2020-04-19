@@ -7,27 +7,22 @@ $(document).ready(function () {
 function loadDataTable() {
     dataTable = $('#DT_load').DataTable({
         "ajax": {
-            "url": "/Reports/getall/",
+            "url": "/Reports/GetCampaignsForReports/",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "campaignName", "width": "30%" },
-            { "data": "submissionDate", "width": "30%" },
+            { "data": "campaignName", "width": "50%" },
             {
-                "data": "id",
+                "data": "campaignId",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/Reports/Edit?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
-                            Edit
+                        <a href="/Reports/Create?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:200px;'>
+                            Start Report
                         </a>
                         &nbsp;
-                        <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
-                            onclick=Delete('/Reports/Delete?id='+${data})>
-                            Delete
-                        </a>
                         </div>`;
-                }, "width": "40%"
+                }, "width": "50%"
             }
         ],
         "language": {

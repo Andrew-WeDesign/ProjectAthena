@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectAthena.Data;
 using ProjectAthena.Models;
+using ProjectAthena.Models.ReportViewModels;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 
@@ -44,6 +45,52 @@ namespace ProjectAthena.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var currentUser = await GetCurrentUserAsync();
+
+            return Json(new { data = await _context.Reports.Where(a => a.ApplicationUserId == currentUser.Id).ToListAsync() });
+        }
+
+        public IActionResult StartReport()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> GetCampaignsForReports()
+        {
+            var currentUser = await GetCurrentUserAsync();
+
+            return Json(new { data = await _context.CampaignUsers.Where(x => x.ApplicationUserId == currentUser.Id).ToListAsync() });
+        }
+
+        public async Task<IActionResult> Create(int id)
+        {
+            Report = new Report();
+
+            CampaignReportData vm = new CampaignReportData() 
+            {
+                Campaigns = await _context.Campaigns.FirstOrDefaultAsync(x => x.Id == id)            
+            };
+
+            return View(vm);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            Report = new Report();
+            var report = await _context.Reports.FirstOrDefaultAsync(y => y.Id == id);
+
+            CampaignReportData vm = new CampaignReportData()
+            {
+                Campaigns = await _context.Campaigns.FirstOrDefaultAsync(x => x.Id == report.CampaignId),
+                Reports = await _context.Reports.FirstOrDefaultAsync(y => y.Id == id)
+            };
+
+            return View(vm);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Upsert(int? id)
         {
             Report = new Report();
@@ -51,7 +98,9 @@ namespace ProjectAthena.Controllers
             var currentUser = await GetCurrentUserAsync();
 
             List<CampaignUser> myCampaigns = new List<CampaignUser>();
-            myCampaigns = (from x in _context.CampaignUsers.Where(a => a.ApplicationUserId == currentUser.Id) select x).ToList();
+            myCampaigns = (from x in _context.CampaignUsers
+                           .Where(a => a.ApplicationUserId == currentUser.Id) select x)
+                           .ToList();
             ViewBag.UserReportsList = myCampaigns;
 
             if (id == null)
@@ -103,14 +152,6 @@ namespace ProjectAthena.Controllers
                 return RedirectToAction("Index");
             }
             return View(Report);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            var currentUser = await GetCurrentUserAsync();
-
-            return Json(new { data = await _context.Reports.Where(a => a.ApplicationUserId == currentUser.Id).ToListAsync() });
         }
 
         [HttpDelete]
